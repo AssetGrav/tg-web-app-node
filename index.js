@@ -1,9 +1,11 @@
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const cors = require('cors');
+const aws = require('aws-sdk');
 
-const token = os.environ['token']
-console.log("t", token)
+const token = process.env.TOKEN
+
+console.log("t", token, aws)
 const webAppUrl = "https://singular-cocada-4e7959.netlify.app"
 
 const bot = new TelegramBot(token, {polling: true});
