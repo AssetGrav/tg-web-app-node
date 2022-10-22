@@ -1,11 +1,11 @@
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const cors = require('cors');
-const aws = require('aws-sdk');
+
+const PORT = process.env.PORT || 8000;
 
 const token = process.env.TOKEN
 
-console.log("t", token, aws)
 const webAppUrl = "https://singular-cocada-4e7959.netlify.app"
 
 const bot = new TelegramBot(token, {polling: true});
@@ -68,7 +68,5 @@ app.post('/web-data', async (req, res) => {
         return res.status(500).json({});
     }
 })
-
-const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => console.log("server started on PORT: " + PORT))
